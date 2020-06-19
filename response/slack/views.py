@@ -80,6 +80,15 @@ def slash_command(request):
 
     dialog.add_element(
         TextArea(
+            label="Environment",
+            name="environment",
+            optional=True,
+            placeholder="What is the environment?",
+        )
+    )
+
+    dialog.add_element(
+        TextArea(
             label="Impact",
             name="impact",
             optional=True,

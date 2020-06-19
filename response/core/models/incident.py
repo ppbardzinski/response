@@ -16,6 +16,7 @@ class IncidentManager(models.Manager):
         report_only,
         private=False,
         summary=None,
+        environment=None,
         impact=None,
         lead=None,
         severity=None,
@@ -28,6 +29,7 @@ class IncidentManager(models.Manager):
             private=private,
             start_time=report_time,
             summary=summary,
+            environment=environment,
             impact=impact,
             lead=lead,
             severity=severity,
@@ -58,6 +60,9 @@ class Incident(models.Model):
     # Additional info
     summary = models.TextField(
         blank=True, null=True, help_text="What's the high level summary?"
+    )
+    environment = models.TextField(
+        blank=True, null=True, help_text="What's the environment?"
     )
     impact = models.TextField(
         blank=True, null=True, help_text="What impact is this having?"
@@ -155,4 +160,5 @@ class Incident(models.Model):
         self.impact = sanitize(self.impact)
         self.report = sanitize(self.report)
         self.summary = sanitize(self.summary)
+        self.environment = sanitize(self.environment)
         super(Incident, self).save(*args, **kwargs)

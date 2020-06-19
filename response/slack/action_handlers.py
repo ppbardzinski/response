@@ -64,6 +64,13 @@ def handle_edit_incident_button(ac: ActionContext):
             placeholder="Who or what might be affected?",
             hint="Think about affected people, systems, and processes",
         ),
+        TextArea(
+            label="Environment",
+            name="environment",
+            value=ac.incident.environment,
+            optional=True,
+            placeholder="What is the environment?",
+        ),
         SelectFromUsers(
             label="Lead",
             name="lead",

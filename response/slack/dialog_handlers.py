@@ -19,6 +19,7 @@ def report_incident(
 ):
     report = submission["report"]
     summary = submission["summary"]
+    environment = submission["environment"]
     impact = submission["impact"]
     lead_id = submission["lead"]
     severity = submission["severity"]
@@ -46,6 +47,7 @@ def report_incident(
         report_time=datetime.now(),
         report_only=report_only,
         summary=summary,
+        environment=environment,
         impact=impact,
         lead=lead,
         severity=severity,
@@ -69,6 +71,7 @@ def edit_incident(
 ):
     report = submission["report"]
     summary = submission["summary"]
+    environment = submission["environment"]
     impact = submission["impact"]
     lead_id = submission["lead"]
     severity = submission["severity"]
@@ -90,6 +93,7 @@ def edit_incident(
         # (required for the headline post to auto update)
         incident.report = report
         incident.summary = summary
+        incident.environment = environment
         incident.impact = impact
         incident.lead = lead
         incident.severity = severity

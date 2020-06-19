@@ -130,6 +130,7 @@ class IncidentSerializer(serializers.ModelSerializer):
             "severity",
             "start_time",
             "summary",
+            "environment",
         )
 
     def update(self, instance, validated_data):
@@ -147,6 +148,7 @@ class IncidentSerializer(serializers.ModelSerializer):
         instance.report = validated_data.get("report", instance.report)
         instance.start_time = validated_data.get("start_time", instance.start_time)
         instance.summary = validated_data.get("summary", instance.summary)
+        instance.environment = validated_data.get("environment", instance.environment)
         instance.severity = validated_data.get("severity", instance.severity)
 
         instance.save()
