@@ -77,10 +77,10 @@ class Incident(models.Model):
         null=True,
         help_text="Who is leading?",
     )
-    
+
     # Incident Platforms
     INCIDENT_PLATFORMS = (('Cognia', 'Cognia'), ('Connected Capture', 'Connected Capture'), ('EntArchive', 'EntArchive'), ('FedArchive', 'FedArchive'), ('Mobileguard', 'Mobileguard'), ('ProArchive', 'ProArchive'), ('Smarsh Internal', 'Smarsh Internal'), ('Socialite', 'Socialite'), ('Vantage', 'Vantage'), ('Webarchiving', 'Webarchiving'))
-    incident_platform = models.CharField(
+    incident_platform = models.TextField(
         blank=True, null=True, choices=INCIDENT_PLATFORMS
     )
 
