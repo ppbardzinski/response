@@ -78,6 +78,13 @@ def handle_edit_incident_button(ac: ActionContext):
             optional=True,
         ),
         SelectWithOptions(
+            [(s.capitalize(), i) for i, s in Incident.INCIDENT_PLATFORMS],
+            value=ac.incident.incident_platform,
+            label="Incident Platform",
+            name="incident_platform",
+            optional=True,
+        ),
+        SelectWithOptions(
             [(s.capitalize(), i) for i, s in Incident.SEVERITIES],
             value=ac.incident.severity,
             label="Severity",

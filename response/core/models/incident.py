@@ -16,6 +16,7 @@ class IncidentManager(models.Manager):
         report_only,
         private=False,
         summary=None,
+        incident_platform=None,
         environment=None,
         impact=None,
         lead=None,
@@ -28,6 +29,7 @@ class IncidentManager(models.Manager):
             report_only=report_only,
             private=private,
             start_time=report_time,
+            incident_platform=incident_platform,
             summary=summary,
             environment=environment,
             impact=impact,
@@ -74,6 +76,12 @@ class Incident(models.Model):
         blank=True,
         null=True,
         help_text="Who is leading?",
+    )
+    
+    # Incident Platforms
+    INCIDENT_PLATFORMS = (('Cognia', 'Cognia'), ('Connected Capture', 'Connected Capture'), ('EntArchive', 'EntArchive'), ('FedArchive', 'FedArchive'), ('Mobileguard', 'Mobileguard'), ('ProArchive', 'ProArchive'), ('Smarsh Internal', 'Smarsh Internal'), ('Socialite', 'Socialite'), ('Vantage', 'Vantage'), ('Webarchiving', 'Webarchiving'))
+    incident_platform = models.CharField(
+        blank=True, null=True, choices=INCIDENT_PLATFORMS
     )
 
     # Severity

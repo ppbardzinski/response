@@ -23,6 +23,8 @@ def report_incident(
     impact = submission["impact"]
     lead_id = submission["lead"]
     severity = submission["severity"]
+    incident_platform = submission["incident_platform"]
+
 
     if "incident_type" in submission:
         report_only = submission["incident_type"] == "report"
@@ -47,6 +49,7 @@ def report_incident(
         report_time=datetime.now(),
         report_only=report_only,
         summary=summary,
+        incident_platform=incident_platform,
         environment=environment,
         impact=impact,
         lead=lead,
@@ -71,6 +74,7 @@ def edit_incident(
 ):
     report = submission["report"]
     summary = submission["summary"]
+    incident_platform = submission["incident_platform"]
     environment = submission["environment"]
     impact = submission["impact"]
     lead_id = submission["lead"]
@@ -96,6 +100,7 @@ def edit_incident(
         incident.environment = environment
         incident.impact = impact
         incident.lead = lead
+        incident.incident_platform = incident_platform
         incident.severity = severity
         incident.save()
 

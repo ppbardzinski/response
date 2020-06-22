@@ -101,6 +101,15 @@ def slash_command(request):
 
     dialog.add_element(
         SelectWithOptions(
+            [(s.capitalize(), i) for i, s in Incident.INCIDENT_PLATFORMS],
+            label="Incident Platform",
+            name="incident_platform",
+            optional=True,
+        )
+    )
+
+    dialog.add_element(
+        SelectWithOptions(
             [(s.capitalize(), i) for i, s in Incident.SEVERITIES],
             label="Severity",
             name="severity",

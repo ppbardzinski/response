@@ -130,6 +130,7 @@ class IncidentSerializer(serializers.ModelSerializer):
             "severity",
             "start_time",
             "summary",
+            "incident_platform",
             "environment",
         )
 
@@ -148,6 +149,7 @@ class IncidentSerializer(serializers.ModelSerializer):
         instance.report = validated_data.get("report", instance.report)
         instance.start_time = validated_data.get("start_time", instance.start_time)
         instance.summary = validated_data.get("summary", instance.summary)
+        instance.incident_platform = validated_data.get("incident_platform", instance.incident_platform)
         instance.environment = validated_data.get("environment", instance.environment)
         instance.severity = validated_data.get("severity", instance.severity)
 
